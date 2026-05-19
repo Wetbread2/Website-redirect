@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verb Quest</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="game-panel" aria-labelledby="app-title">
+        <div class="top-bar">
+          <div>
+            <p class="eyebrow">Irregular verbs practice</p>
+            <h1 id="app-title">Verb Quest</h1>
+          </div>
+          <div class="mascot" aria-hidden="true">
+            <svg viewBox="0 0 160 160" role="img">
+              <circle cx="80" cy="80" r="72" fill="#ffce4a" />
+              <path d="M38 96c19 29 66 31 88 0" fill="none" stroke="#4b2f8f" stroke-width="9" stroke-linecap="round" />
+              <circle cx="57" cy="67" r="10" fill="#4b2f8f" />
+              <circle cx="103" cy="67" r="10" fill="#4b2f8f" />
+              <path d="M27 42l20 7 7-20 8 20 20-7-12 18 16 14-21-2-8 19-8-19-21 2 16-14z" fill="#ff6b6b" />
+              <path d="M105 30l8 16 18 3-13 12 3 18-16-9-16 9 3-18-13-12 18-3z" fill="#24c6dc" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="stats-strip" aria-label="Round progress">
+          <div>
+            <span class="stat-label">Question</span>
+            <strong id="progressText">1 / 20</strong>
+          </div>
+          <div>
+            <span class="stat-label">Score</span>
+            <strong id="scoreText">0</strong>
+          </div>
+          <div>
+            <span class="stat-label">Streak</span>
+            <strong id="streakText">0</strong>
+          </div>
+          <div>
+            <span class="stat-label">Time</span>
+            <strong id="timerText">0:00</strong>
+          </div>
+        </div>
+
+        <div class="progress-track" aria-hidden="true">
+          <span id="progressBar"></span>
+        </div>
+
+        <section id="playScreen" class="screen active" aria-label="Verb practice">
+          <div class="quest-card">
+            <div class="verb-art" aria-hidden="true">
+              <span id="verbInitial">B</span>
+            </div>
+            <div class="question-copy">
+              <p>Change this base verb:</p>
+              <h2 id="baseVerb">be</h2>
+            </div>
+          </div>
+
+          <form id="answerForm" class="answer-form">
+            <label>
+              Past simple
+              <input id="pastInput" type="text" autocomplete="off" placeholder="was / were" />
+            </label>
+            <label>
+              Past participle
+              <input id="participleInput" type="text" autocomplete="off" placeholder="been" />
+            </label>
+            <button class="primary-button" type="submit">Check answer</button>
+          </form>
+
+          <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+        </section>
+
+        <section id="resultScreen" class="screen" aria-label="Round results">
+          <div class="result-burst">
+            <svg viewBox="0 0 220 180" aria-hidden="true">
+              <path d="M111 10l20 50 55-18-25 50 47 31-55 10 3 56-45-33-45 33 3-56-55-10 47-31-25-50 55 18z" fill="#ffcf4d" />
+              <circle cx="110" cy="92" r="48" fill="#ff7ab6" />
+              <path d="M83 95l18 18 39-44" fill="none" stroke="#fff" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h2 id="resultTitle">Round complete!</h2>
+          <p id="resultSummary"></p>
+          <div id="awardsList" class="awards-list" aria-label="Awards earned"></div>
+          <button id="playAgainButton" class="primary-button" type="button">Play again</button>
+        </section>
+      </section>
+
+      <aside class="side-panel" aria-label="Score board and awards">
+        <section class="leaderboard">
+          <div class="section-heading">
+            <h2>Leaderboard</h2>
+            <button id="clearScoresButton" class="ghost-button" type="button">Reset</button>
+          </div>
+          <ol id="leaderboardList"></ol>
+        </section>
+
+        <section class="trophy-room">
+          <h2>Award Cabinet</h2>
+          <div id="trophyGrid" class="trophy-grid"></div>
+        </section>
+
+        <section class="verb-list">
+          <h2>20 Verbs</h2>
+          <div id="verbChips" class="verb-chips"></div>
+        </section>
+      </aside>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
